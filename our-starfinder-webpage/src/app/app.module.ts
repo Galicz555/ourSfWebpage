@@ -5,10 +5,12 @@ import { AppRoutingModule, routingComponents } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { SessionComponent } from "./components/session/session.component";
-import { TopOneLinersComponent } from './components/top-one-liners/top-one-liners.component';
-import { LoginPageComponent } from './components/login-page/login-page.component';
-import { RegisterPageComponent } from './components/register-page/register-page.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { TopOneLinersComponent } from "./components/top-one-liners/top-one-liners.component";
+import { LoginPageComponent } from "./components/login-page/login-page.component";
+import { RegisterPageComponent } from "./components/register-page/register-page.component";
+import { NotFoundComponent } from "./components/not-found/not-found.component";
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     TopOneLinersComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    NotFoundComponent,
+    NotFoundComponent
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
