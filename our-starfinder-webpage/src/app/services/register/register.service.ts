@@ -19,7 +19,7 @@ export class RegisterService {
     name: string,
     phoneNumber: string,
     dateOfBirth: string,
-    licenceNumber: string): Observable<RegisterResponse> {
+    ): Observable<RegisterResponse> {
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -30,13 +30,12 @@ export class RegisterService {
 
     const request = this.http.post(`${environment.hostname}/register`,
       {
-        'email': email,
+        'name': name,
         'password': password,
         'confirmPsw': confirmPsw,
-        'name': name,
+        'email': email,
         'phoneNumber': phoneNumber,
-        'dateOfBirth': dateOfBirth,
-        'licenceNumber': licenceNumber
+        'dateOfBirth': dateOfBirth
       }, options);
 
     return request.pipe(map(res => {

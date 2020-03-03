@@ -5,7 +5,6 @@ export class User {
   role: string;
   id: number;
   DOB: number;
-  license: number;
 
   constructor(user) {
     this.id = user.id;
@@ -13,7 +12,6 @@ export class User {
     this.username = user.username;
     this.phone = user.phone;
     this.DOB = user.DOB;
-    this.license = user.license;
   }
 }
 

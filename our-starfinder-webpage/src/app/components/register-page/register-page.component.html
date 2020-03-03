@@ -4,8 +4,8 @@
       <h1 class="card-header text-white bg-dark text-center">Sign Up</h1>
       <form>
         <div class="form-group col-sm-10">
-          <input type="email" name="email" class="form-control" [(ngModel)]="email" placeholder="Enter e-mail" required>
-          <p for="email" class="col-form-label" *ngIf="emailError">{{emailError}}</p>
+          <input type="text" name="name" class="form-control" [(ngModel)]="name" placeholder="Enter name" required>
+          <p for="name" class="col-form-label" *ngIf="nameError">{{nameError}}</p>
         </div>
         <div class="form-group col-sm-10">
           <input type="password" name="password" class="form-control" [(ngModel)]="password" placeholder="Password" required>
@@ -16,8 +16,8 @@
           <p for="confirmPsw" class="col-form-label" *ngIf="confirmPswError">{{confirmPswError}}</p>
         </div>
         <div class="form-group col-sm-10">
-          <input type="text" name="name" class="form-control" [(ngModel)]="name" placeholder="Enter name" required>
-          <p for="name" class="col-form-label" *ngIf="nameError">{{nameError}}</p>
+          <input type="email" name="email" class="form-control" [(ngModel)]="email" placeholder="Enter e-mail" required>
+          <p for="email" class="col-form-label" *ngIf="emailError">{{emailError}}</p>
         </div>
         <div class="form-group col-sm-10">
           <input type="text" name="phoneNumber" class="form-control" [(ngModel)]="phoneNumber" placeholder="Phone number" required>
@@ -26,10 +26,6 @@
         <div class="form-group col-sm-10">
           <input type="date" name="dateOfBirth" class="form-control" [(ngModel)]="dateOfBirth" placeholder="Date of birth YYYY-MM-DD" required>
           <p for="dateOfBirth" class="col-form-label" *ngIf="dateOfBirthError">{{dateOfBirthError}}</p>
-        </div>
-        <div class="form-group col-sm-10">
-          <input type="text" name="licenceNumber" class="form-control" [(ngModel)]="licenceNumber" placeholder="Driver Licence number" required>
-          <p for="licenceNumber" class="col-form-label" *ngIf="licenceNumberError">{{licenceNumberError}}</p>
         </div>
         <div class="buttons col-sm-10">
           <button type="button" class="btn btn-warning" (click)="cancelRegistration()">cancel</button>

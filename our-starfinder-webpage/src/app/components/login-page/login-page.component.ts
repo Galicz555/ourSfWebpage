@@ -33,7 +33,7 @@ export class LoginPageComponent implements OnInit {
         response => {
           localStorage.setItem("access_token", response.accessToken);
           localStorage.setItem("refresh_token", response.refreshToken);
-          this.router.navigate([`/dungeon/`]);
+          this.router.navigate([`/base/dungeon/`]);
         },
         error => {
           this.loginMessage = this.handleError(error);

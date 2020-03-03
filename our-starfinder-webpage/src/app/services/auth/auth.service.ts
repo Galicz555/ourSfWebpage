@@ -30,7 +30,7 @@ export class AuthService {
         'username': `${username}`,
         'password': `${password}`,
       }, options);
-
+      
     return request.pipe(map(res => {
       return new LoginResponse(res['body'].accessToken, res['body'].refreshToken);
     }),

@@ -14,7 +14,6 @@ export class RegisterPageComponent implements OnInit {
   name: string;
   phoneNumber: string;
   dateOfBirth: string;
-  licenceNumber: string;
 
   emailError: string;
   passwordError: string;
@@ -22,7 +21,6 @@ export class RegisterPageComponent implements OnInit {
   nameError: string;
   phoneNumberError: string;
   dateOfBirthError: string;
-  licenceNumberError: string;
 
   emailStatus: boolean;
   passwordStatus: boolean;
@@ -30,7 +28,6 @@ export class RegisterPageComponent implements OnInit {
   nameStatus: boolean;
   phoneNumberStatus: boolean;
   dateOfBirthStatus: boolean;
-  licenceNumberStatus: boolean;
 
   messageSuccess: string;
 
@@ -88,17 +85,8 @@ export class RegisterPageComponent implements OnInit {
     return (input && date.test(input));
   }
 
-  checkLicence(licence: string): boolean {
-    return (licence !== undefined && licence.length > 0);
-  }
-
-  licenceValidation(input: string): boolean {
-    const licence = /^[0-9a-zA-Z]{7,9}$/;
-    return (input && licence.test(input));
-  }
-
-  checkStatus(emailStatus: boolean, passwordStatus: boolean, confirmPasswordStatus: boolean, nameStatus: boolean, phoneNumberStatus: boolean, dateOfBirthStatus: boolean, licenceNumberStatus: boolean): boolean {
-    return (emailStatus === true && passwordStatus === true && confirmPasswordStatus === true && nameStatus === true && phoneNumberStatus === true && dateOfBirthStatus === true && licenceNumberStatus === true);
+  checkStatus(emailStatus: boolean, passwordStatus: boolean, confirmPasswordStatus: boolean, nameStatus: boolean, phoneNumberStatus: boolean, dateOfBirthStatus: boolean): boolean {
+    return (emailStatus === true && passwordStatus === true && confirmPasswordStatus === true && nameStatus === true && phoneNumberStatus === true && dateOfBirthStatus === true);
   }
 
   registerUser() {
@@ -156,18 +144,8 @@ export class RegisterPageComponent implements OnInit {
       this.dateOfBirthError = '';
       this.dateOfBirthStatus = true;
     }
-    if (this.checkLicence(this.licenceNumber) === false || !this.licenceNumber) {
-      this.licenceNumberError = 'Driver number should be without separator';
-      this.licenceNumberStatus = false;
-    } else if (this.licenceValidation(this.licenceNumber) === false) {
-      this.licenceNumberError = 'Driver number should be without separator';
-      this.licenceNumberStatus = false;
-    } else {
-      this.licenceNumberError = '';
-      this.licenceNumberStatus = true;
-    }
-    if (this.checkStatus(this.emailStatus, this.passwordStatus, this.confirmPswStatus, this.nameStatus, this.phoneNumberStatus, this.dateOfBirthStatus, this.licenceNumberStatus) === true) {
-      this.registerService.sendRegister(this.email, this.password, this.confirmPsw, this.name, this.phoneNumber, this.dateOfBirth, this.licenceNumber).subscribe((response) => {
+    if (this.checkStatus(this.emailStatus, this.passwordStatus, this.confirmPswStatus, this.nameStatus, this.phoneNumberStatus, this.dateOfBirthStatus) === true) {
+      this.registerService.sendRegister(this.email, this.password, this.confirmPsw, this.name, this.phoneNumber, this.dateOfBirth).subscribe((response) => {
         setTimeout(() => {
           this.router.navigate(['/login']);
         }, 1500);
